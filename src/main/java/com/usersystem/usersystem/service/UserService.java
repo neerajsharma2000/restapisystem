@@ -19,11 +19,21 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public boolean existsByEmail(String email) {
-		return userRepository.existsByEmail(email);
-	}
+//	public boolean existsByEmail(String email) {
+//		return userRepository.existsByEmail(email);
+//	}
+//
+//	public UserEntity findByEmail(String email) {
+//		return userRepository.findByEmail(email);
+//	}
 
-	public UserEntity findByEmail(String email) {
-		return userRepository.findByEmail(email);
+	public UserEntity createUser(UserEntity userEntity) {
+		// TODO Auto-generated method stub
+		userEntity.setPassword((userEntity.getPassword()));
+		userEntity.setRole("ROLE_USER");
+
+		return userRepository.save(userEntity);
 	}
+	
+	
 }
