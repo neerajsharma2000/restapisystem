@@ -15,8 +15,12 @@ import com.usersystem.usersystem.model.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity,String> {
 
-	public boolean existsByEmail(String email);
+//	boolean findByEmail(String email);
 
-	public UserEntity findByEmail(String email);
+	boolean existsByEmail(String email);
+
+
+
+	
 
 }

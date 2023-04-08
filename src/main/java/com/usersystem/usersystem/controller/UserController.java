@@ -21,52 +21,21 @@ import com.usersystem.usersystem.service.UserService;
  *
  */
 @Controller
-//@RequestMapping("/home")
-public class HomeController {
+@RequestMapping("/home")
+public class UserController {
 	@Autowired
 	private UserService userService;
 
 	@GetMapping("/")
-	public String index() {
-		return "index";
+	public String home() {
+		return "user/user";
 	}
 
-	@GetMapping("/signin")
-	public String login() {
-		return "login";
-	}
-
-	@GetMapping("/register")
-	public String register() {
-		return "register";
-	}
+	
 
 	@GetMapping("/health-check")
 	public Boolean healthcheck() {
 		return true;
 	}
 
-	@PostMapping("/createUser")
-	public String createuser(@ModelAttribute UserEntity userEntity,HttpSession session) {
-
-
-		if (userService.findByEmail(userEntity.getEmail())==true) {
-			System.out.println("Email Id alreday exists");
-			session.setAttribute("msg", "Email Id alreday exists");
-		}
-
-		else {
-			UserEntity response = userService.createUser(userEntity);
-			if (response != null) {
-				session.setAttribute("msg", "Register Sucessfully");
-
-			} else {
-				session.setAttribute("msg", "Something wrong on server");
-
-
-			}
-		}
-
-		return "redirect:/register";
-	}
 }

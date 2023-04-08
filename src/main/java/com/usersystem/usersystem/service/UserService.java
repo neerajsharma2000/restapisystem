@@ -19,9 +19,10 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-//	public boolean existsByEmail(String email) {
-//		return userRepository.existsByEmail(email);
-//	}
+	public boolean findByEmail(String email) {
+		return userRepository.existsByEmail(email);
+		
+	}
 //
 //	public UserEntity findByEmail(String email) {
 //		return userRepository.findByEmail(email);
