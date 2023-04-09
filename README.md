@@ -1,17 +1,33 @@
 # restapisystem
 springboot assignment
 
+
 Steps:
+
+
 1.Download the source code
+
+
 2.run the springboot application (via Java application)
+
+
 3.
 public apis- "/","/login","/register","/index"- 
 private apis-"/user/"
 
+
+
 register through register page:
 (enter role -ROLE_USER otherwise not permited to access the private api)
+
+
+
 4.login through login page
+
+
+
 5.you will get Success url page
+
 
 
 Techstack:-
