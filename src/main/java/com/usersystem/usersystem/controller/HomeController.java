@@ -17,11 +17,9 @@ import com.usersystem.usersystem.model.UserEntity;
 import com.usersystem.usersystem.service.UserService;
 
 /**
- * @author NEERAJ
- *
+ * @author NEERAJ public apis controller class
  */
 @Controller
-//@RequestMapping("/home")
 public class HomeController {
 	@Autowired
 	private UserService userService;
@@ -47,11 +45,10 @@ public class HomeController {
 	}
 
 	@PostMapping("/createUser")
-	public String createuser(@ModelAttribute UserEntity userEntity,HttpSession session) {
+	public String createuser(@ModelAttribute UserEntity userEntity, HttpSession session) {
+		// Registers the user
 
-
-		if (userService.existsByEmail(userEntity.getEmail())==true) {
-			System.out.println("Email Id alreday exists");
+		if (userService.existsByEmail(userEntity.getEmail()) == true) {
 			session.setAttribute("msg", "Email Id already exists");
 		}
 
@@ -63,12 +60,10 @@ public class HomeController {
 			} else {
 				session.setAttribute("msg", "Something wrong on server");
 
-
 			}
 		}
 
 		return "redirect:/register";
 	}
-	
-	
+
 }

@@ -8,18 +8,18 @@ import org.springframework.stereotype.Service;
 
 import com.usersystem.usersystem.model.UserEntity;
 import com.usersystem.usersystem.repository.UserRepository;
-
+/**
+ * @author NEERAJ
+ *
+ */
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-		
-
-		
 		UserEntity user = userRepository.findByEmail(email);
 
 		if (user != null) {

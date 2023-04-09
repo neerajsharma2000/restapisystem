@@ -30,18 +30,18 @@ import com.usersystem.usersystem.repository.UserRepository;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	
+
 	@Bean
 	public UserDetailsService userDetailsService() {
 
-
 		return new UserDetailServiceImpl();
 	}
-	 
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
 	@Bean
 	public DaoAuthenticationProvider getDaoAuthProvider() {
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -51,25 +51,18 @@ public class SecurityConfig {
 		return daoAuthenticationProvider;
 	}
 
-	
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.authenticationProvider(getDaoAuthProvider());
-//	}
-
-	
 	@Bean
 	public SecurityFilterChain filterchain(HttpSecurity httpSecurity) throws Exception {
-		//configures webpages with specific apis to require authentication feature or not
-		httpSecurity.
-		authorizeRequests().antMatchers("/user/**").hasRole("USER")
-		.antMatchers("/**").permitAll().and().formLogin().loginPage("/signin").loginProcessingUrl("/login")
-		.defaultSuccessUrl("/user/").and().csrf().disable();
-		
+		// configures webpages with specific apis to require authentication feature or
+		// not
+		// configure login url page and success url page
+		httpSecurity.authorizeRequests().antMatchers("/user/**").hasRole("USER").antMatchers("/**").permitAll().and()
+				.formLogin().loginPage("/signin").loginProcessingUrl("/login").defaultSuccessUrl("/user/").and().csrf()
+				.disable();
+
 		httpSecurity.authenticationProvider(getDaoAuthProvider());
-		
+
 		return httpSecurity.build();
 	}
-	
-	
 
 }

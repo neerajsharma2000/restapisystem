@@ -20,8 +20,8 @@ import com.usersystem.usersystem.model.UserEntity;
 import com.usersystem.usersystem.service.UserService;
 
 /**
- * @author NEERAJ
- *
+ * @author NEERAJ 
+ * private apis controller class
  */
 @Controller
 @RequestMapping("/user")
@@ -31,10 +31,9 @@ public class UserController {
 
 	@GetMapping("/")
 	public String home() {
+		//success url home page
 		return "user/home";
 	}
-
-	
 
 	@ModelAttribute
 	private void userDetails(Model m, Principal p) {
@@ -44,7 +43,6 @@ public class UserController {
 		m.addAttribute("user", user);
 
 	}
-	
 
 	@GetMapping("/health-check")
 	public Boolean healthcheck() {
