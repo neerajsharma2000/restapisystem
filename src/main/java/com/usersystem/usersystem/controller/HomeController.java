@@ -50,9 +50,9 @@ public class HomeController {
 	public String createuser(@ModelAttribute UserEntity userEntity,HttpSession session) {
 
 
-		if (userService.findByEmail(userEntity.getEmail())==true) {
+		if (userService.existsByEmail(userEntity.getEmail())==true) {
 			System.out.println("Email Id alreday exists");
-			session.setAttribute("msg", "Email Id alreday exists");
+			session.setAttribute("msg", "Email Id already exists");
 		}
 
 		else {
@@ -69,4 +69,6 @@ public class HomeController {
 
 		return "redirect:/register";
 	}
+	
+	
 }
