@@ -19,7 +19,12 @@ private apis-"/user/"
 
 register through register page:
 (enter role -ROLE_USER otherwise not permited to access the private api)
+![Screenshot (32)](https://user-images.githubusercontent.com/71774839/230842309-0fc061b1-6ed5-4921-8d9f-79896b2c4dcd.png)
+![Screenshot (33)](https://user-images.githubusercontent.com/71774839/230842337-eacc1370-0dfd-4768-95b8-7ad02de30191.png)
+![Screenshot (34)](https://user-images.githubusercontent.com/71774839/230842360-5d99ba97-1d3d-4109-93d1-45671a8a2e2d.png)
 
+
+![Screenshot (35)](https://user-images.githubusercontent.com/71774839/230842289-d23e91a9-6495-4077-83f0-5281d1c02841.png)
 
 
 4.login through login page
